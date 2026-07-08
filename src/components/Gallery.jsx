@@ -3,7 +3,7 @@ import { useState } from "react";
 import design1 from "../assets/images/design1.png";
 import design2 from "../assets/images/design2.png";
 import design3 from "../assets/images/design3.png";
-import design4 from "../assets/images/design4.png";
+import design4 from "../assets/images/design4.jpeg";
 import design5 from "../assets/images/design5.png";
 import design6 from "../assets/images/design6.png";
 

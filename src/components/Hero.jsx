@@ -1,5 +1,5 @@
 import profile from "../assets/images/profile.png";
-import cv from "../assets/documents/terhemen donald cv.pdf";
+import cv from "../assets/documents/Terhemen Donald CV.pdf";
 
 import {
   FaGithub,
