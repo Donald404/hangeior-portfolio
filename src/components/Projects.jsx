@@ -16,12 +16,12 @@ function Projects() {
     {
       title: "Student Hostel Management System",
 
-      category: "Front-End Development",
+      category: "React Application",
 
       image: project1,
 
       description:
-        "A modern hostel management application for managing students, rooms, allocations and hostel administration.",
+        "A modern hostel management system designed to simplify room allocation, student records, accommodation management, and administrative tasks.",
 
       technologies: [
         "React",
@@ -37,12 +37,12 @@ function Projects() {
     {
       title: "School Management Website",
 
-      category: "Web Development",
+      category: "Responsive Website",
 
       image: project2,
 
       description:
-        "A responsive school website featuring admissions, gallery, news updates, contact information and online presence.",
+        "A fully responsive school website featuring admissions, news updates, galleries, contact information, and an engaging online presence.",
 
       technologies: [
         "HTML",
@@ -58,17 +58,17 @@ function Projects() {
     {
       title: "Personal Portfolio",
 
-      category: "React Project",
+      category: "Portfolio Website",
 
       image: project3,
 
       description:
-        "A professional portfolio website showcasing web development, graphic design and educational experience.",
+        "A modern portfolio showcasing my expertise in graphic design, front-end development, and teaching through a clean and responsive interface.",
 
       technologies: [
         "React",
         "Vite",
-        "Tailwind",
+        "Tailwind CSS",
       ],
 
       demo: "#",
@@ -84,20 +84,28 @@ function Projects() {
 
       <section
         id="projects"
-        className="py-24 bg-gray-100 dark:bg-gray-900 transition-colors duration-300"
+        className="py-24 bg-gray-100"
       >
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-5xl font-bold text-center text-blue-600 mb-4">
-            Featured Projects
-          </h2>
+          {/* Heading */}
 
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-16 max-w-3xl mx-auto">
-            Here are some of my recent web development projects that
-            demonstrate my passion for creating modern, responsive,
-            and user-friendly applications.
-          </p>
+          <div className="text-center mb-16">
+
+            <h2 className="text-5xl font-bold text-blue-600 mb-4">
+              Featured Projects
+            </h2>
+
+            <p className="text-gray-600 max-w-3xl mx-auto leading-8">
+              Here are some projects that reflect my passion for building
+              responsive websites and creating digital solutions that are
+              practical, user-friendly, and visually appealing.
+            </p>
+
+          </div>
+
+          {/* Cards */}
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
@@ -105,38 +113,38 @@ function Projects() {
 
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-3 transition duration-500"
+                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-500"
               >
 
-                {/* Image */}
+                {/* Project Image */}
 
                 <div className="overflow-hidden">
 
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-60 object-cover hover:scale-110 transition duration-700"
+                    className="w-full h-64 object-cover hover:scale-110 transition duration-700"
                   />
 
                 </div>
 
-                {/* Content */}
+                {/* Project Content */}
 
-                <div className="p-7">
+                <div className="p-8">
 
-                  <p className="text-blue-600 font-semibold text-sm mb-2">
+                  <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
                     {project.category}
-                  </p>
+                  </span>
 
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     {project.title}
                   </h3>
 
-                  <p className="text-gray-600 dark:text-gray-300 leading-7 mb-6">
+                  <p className="text-gray-600 leading-7 mb-6">
                     {project.description}
                   </p>
 
-                  {/* Tech Badges */}
+                  {/* Technologies */}
 
                   <div className="flex flex-wrap gap-2 mb-8">
 
@@ -144,7 +152,7 @@ function Projects() {
 
                       <span
                         key={i}
-                        className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm"
+                        className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm"
                       >
                         {tech}
                       </span>
@@ -155,16 +163,15 @@ function Projects() {
 
                   {/* Buttons */}
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-3">
 
                     <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg transition"
+                      className="flex-1 flex justify-center items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl transition"
                     >
                       <FaExternalLinkAlt />
-
                       Live Demo
                     </a>
 
@@ -172,11 +179,9 @@ function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 border border-blue-600 text-blue-600 dark:text-blue-400 px-5 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition"
+                      className="flex justify-center items-center gap-2 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-5 rounded-xl transition"
                     >
                       <FaGithub />
-
-                      GitHub
                     </a>
 
                   </div>

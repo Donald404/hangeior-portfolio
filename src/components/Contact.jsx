@@ -25,10 +25,6 @@ function Contact() {
     setSending(true);
     setMessage("");
 
-    console.log("SERVICE:", import.meta.env.VITE_EMAILJS_SERVICE_ID);
-    console.log("TEMPLATE:", import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
-    console.log("PUBLIC:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -36,18 +32,13 @@ function Contact() {
         form.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
-      .then((result) => {
-        console.log(result);
-
-        setMessage("✅ Message sent successfully!");
-
+      .then(() => {
+        setMessage("✅ Thank you! Your message has been sent successfully.");
         form.current.reset();
       })
       .catch((error) => {
-        console.log(error);
-
         setMessage(
-          `❌ Failed to send message.\n${error.text || error.message}`
+          `❌ Unable to send your message.\n${error.text || error.message}`
         );
       })
       .finally(() => {
@@ -59,84 +50,98 @@ function Contact() {
     <SectionWrapper>
       <section
         id="contact"
-        className="py-24 bg-gray-100 dark:bg-gray-900 transition-colors duration-300"
+        className="py-24 bg-gray-100"
       >
         <div className="max-w-7xl mx-auto px-6">
+
+          {/* Heading */}
+
           <div className="text-center mb-16">
+
             <h2 className="text-5xl font-bold text-blue-600 mb-4">
-              Get In Touch
+              Let's Work Together
             </h2>
 
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Have a project in mind? I'd love to hear from you.
+            <p className="text-gray-600 max-w-2xl mx-auto leading-8">
+              Whether you need a creative graphic designer, a responsive website,
+              or simply want to discuss an idea, I'd be delighted to hear from you.
             </p>
+
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-14">
 
             {/* LEFT */}
 
             <div>
+
               <div className="space-y-8">
 
                 <div className="flex items-center gap-5">
-                  <div className="bg-blue-600 text-white p-4 rounded-xl">
+
+                  <div className="bg-blue-600 text-white p-4 rounded-xl shadow-md">
                     <FaEnvelope size={22} />
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-lg dark:text-white">
+                    <h3 className="font-bold text-lg text-gray-900">
                       Email
                     </h3>
 
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-gray-600">
                       nyiyongudonald@gmail.com
                     </p>
                   </div>
+
                 </div>
 
                 <div className="flex items-center gap-5">
-                  <div className="bg-blue-600 text-white p-4 rounded-xl">
+
+                  <div className="bg-blue-600 text-white p-4 rounded-xl shadow-md">
                     <FaPhoneAlt size={22} />
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-lg dark:text-white">
+                    <h3 className="font-bold text-lg text-gray-900">
                       Phone
                     </h3>
 
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-gray-600">
                       +234 808 286 6341
                     </p>
                   </div>
+
                 </div>
 
                 <div className="flex items-center gap-5">
-                  <div className="bg-blue-600 text-white p-4 rounded-xl">
+
+                  <div className="bg-blue-600 text-white p-4 rounded-xl shadow-md">
                     <FaMapMarkerAlt size={22} />
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-lg dark:text-white">
+                    <h3 className="font-bold text-lg text-gray-900">
                       Location
                     </h3>
 
-                    <p className="text-gray-600 dark:text-gray-400">
+                    <p className="text-gray-600">
                       Lagos, Nigeria
                     </p>
                   </div>
+
                 </div>
+
               </div>
 
-              {/* SOCIALS */}
+              {/* Social Links */}
 
-              <div className="flex gap-5 mt-10 text-2xl">
+              <div className="flex gap-5 mt-10 text-2xl text-gray-700">
 
                 <a
                   href="https://github.com/Donald404"
                   target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-blue-600 transition"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition duration-300"
                 >
                   <FaGithub />
                 </a>
@@ -144,8 +149,8 @@ function Contact() {
                 <a
                   href="https://linkedin.com/in/donald-terhemen"
                   target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-blue-600 transition"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition duration-300"
                 >
                   <FaLinkedin />
                 </a>
@@ -153,22 +158,23 @@ function Contact() {
                 <a
                   href="https://facebook.com/"
                   target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-blue-600 transition"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition duration-300"
                 >
                   <FaFacebook />
                 </a>
 
                 <a
-                  href="https://tiktok.com/@dho_nald"
+                  href="https://www.tiktok.com/@dho_nald"
                   target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-blue-600 transition"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 transition duration-300"
                 >
                   <FaTiktok />
                 </a>
 
               </div>
+
             </div>
 
             {/* RIGHT */}
@@ -176,10 +182,8 @@ function Contact() {
             <form
               ref={form}
               onSubmit={sendEmail}
-              className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8"
+              className="bg-white rounded-3xl shadow-xl p-8"
             >
-
-              {/* This is for {{title}} */}
 
               <input
                 type="hidden"
@@ -188,7 +192,8 @@ function Contact() {
               />
 
               <div className="mb-6">
-                <label className="block mb-2 font-semibold dark:text-white">
+
+                <label className="block mb-2 font-semibold text-gray-800">
                   Full Name
                 </label>
 
@@ -196,13 +201,15 @@ function Contact() {
                   type="text"
                   name="name"
                   required
-                  placeholder="Your Name"
-                  className="w-full p-4 rounded-xl border dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  placeholder="Enter your full name"
+                  className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
                 />
+
               </div>
 
               <div className="mb-6">
-                <label className="block mb-2 font-semibold dark:text-white">
+
+                <label className="block mb-2 font-semibold text-gray-800">
                   Email Address
                 </label>
 
@@ -210,13 +217,15 @@ function Contact() {
                   type="email"
                   name="email"
                   required
-                  placeholder="Your Email"
-                  className="w-full p-4 rounded-xl border dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  placeholder="Enter your email address"
+                  className="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
                 />
+
               </div>
 
               <div className="mb-6">
-                <label className="block mb-2 font-semibold dark:text-white">
+
+                <label className="block mb-2 font-semibold text-gray-800">
                   Message
                 </label>
 
@@ -224,28 +233,32 @@ function Contact() {
                   rows="6"
                   name="message"
                   required
-                  placeholder="Write your message..."
-                  className="w-full p-4 rounded-xl border dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  placeholder="Tell me about your project..."
+                  className="w-full p-4 rounded-xl border border-gray-300 resize-none focus:outline-none focus:ring-2 focus:ring-blue-600"
                 ></textarea>
+
               </div>
 
               <button
                 type="submit"
                 disabled={sending}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl"
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-4 rounded-xl font-semibold transition duration-300"
               >
                 {sending ? "Sending..." : "Send Message"}
               </button>
 
               {message && (
-                <p className="mt-6 whitespace-pre-line text-center dark:text-white">
+
+                <p className="mt-6 text-center font-medium whitespace-pre-line text-gray-700">
                   {message}
                 </p>
+
               )}
 
             </form>
 
           </div>
+
         </div>
       </section>
     </SectionWrapper>

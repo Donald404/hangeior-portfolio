@@ -17,7 +17,7 @@ function LoadingScreen() {
         }}
         className="text-6xl font-extrabold text-blue-500"
       >
-        HD
+        TD
       </motion.h1>
 
       <motion.h2
@@ -29,7 +29,7 @@ function LoadingScreen() {
         }}
         className="text-2xl text-white mt-4 font-semibold"
       >
-        Hangeior Donald
+        Terhemen Donald
       </motion.h2>
 
       <motion.p
