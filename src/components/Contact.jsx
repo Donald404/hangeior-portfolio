@@ -50,7 +50,7 @@ function Contact() {
     <SectionWrapper>
       <section
         id="contact"
-        className="py-24 bg-gray-100"
+        className="py-24 bg-white"
       >
         <div className="max-w-7xl mx-auto px-6">
 

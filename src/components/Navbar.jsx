@@ -1,93 +1,103 @@
 import { useState, useEffect } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import logo from "../assets/images/logo.png";
 
-import {
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
+const links = [
+  "home",
+  "skills",
+  "projects",
+  "gallery",
+  "contact",
+];
 
 function Navbar() {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const links = [
-    "home",
-    "about",
-    "skills",
-    "projects",
-    "gallery",
-    "contact",
-  ];
-
   useEffect(() => {
+    const sections = links.map((id) => document.getElementById(id));
+
     const handleScroll = () => {
-      let current = "home";
+      const scrollPosition = window.innerHeight * 0.35;
 
-      links.forEach((section) => {
-        const element = document.getElementById(section);
+      for (const section of sections) {
+        if (!section) continue;
 
-        if (element) {
-          const top = element.offsetTop - 120;
+        const rect = section.getBoundingClientRect();
 
-          if (window.scrollY >= top) {
-            current = section;
-          }
+        if (rect.top <= scrollPosition && rect.bottom >= scrollPosition) {
+          setActive(section.id);
+          break;
         }
-      });
-
-      setActive(current);
+      }
     };
+
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
 
-    return () =>
-      window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleClick = (link) => {
+    setActive(link);
+    setMenuOpen(false);
+
+    const section = document.getElementById(link);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
-
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
         {/* Logo */}
 
-        <a
-          href="#home"
-          className="text-3xl font-extrabold text-blue-600"
-        >
-          TD
-        </a>
+        <button
+  onClick={() => handleClick("home")}
+  className="flex items-center"
+>
+  <img
+    src={logo}
+    alt="Terhemen Donald Logo"
+    className="h-12 w-auto"
+  />
+</button>
 
         {/* Desktop Menu */}
 
         <ul className="hidden md:flex gap-8 font-medium">
-
           {links.map((link) => (
             <li key={link}>
-              <a
-                href={`#${link}`}
-                className={`capitalize transition ${
+              <button
+                onClick={() => handleClick(link)}
+                className={`capitalize transition duration-300 ${
                   active === link
                     ? "text-blue-600 font-bold"
                     : "text-gray-700 hover:text-blue-600"
                 }`}
               >
                 {link}
-              </a>
+              </button>
             </li>
           ))}
-
         </ul>
 
         {/* Right Side */}
 
         <div className="flex items-center gap-4">
-
-          <a
-            href="#contact"
+          <button
+            onClick={() => handleClick("contact")}
             className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Hire Me
-          </a>
+          </button>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -95,46 +105,36 @@ function Navbar() {
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
-
         </div>
-
       </nav>
 
       {/* Mobile Menu */}
 
       {menuOpen && (
-
         <div className="md:hidden bg-white shadow-lg">
 
           {links.map((link) => (
-
-            <a
+            <button
               key={link}
-              href={`#${link}`}
-              onClick={() => setMenuOpen(false)}
-              className={`block px-6 py-4 capitalize transition ${
+              onClick={() => handleClick(link)}
+              className={`block w-full text-left px-6 py-4 capitalize transition ${
                 active === link
                   ? "text-blue-600 font-bold"
                   : "text-gray-700"
               }`}
             >
               {link}
-            </a>
-
+            </button>
           ))}
 
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="block mx-6 my-4 bg-blue-600 text-white text-center py-3 rounded-lg hover:bg-blue-700 transition"
+          <button
+            onClick={() => handleClick("contact")}
+            className="block w-[calc(100%-3rem)] mx-6 my-4 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
           >
             Hire Me
-          </a>
-
+          </button>
         </div>
-
       )}
-
     </header>
   );
 }

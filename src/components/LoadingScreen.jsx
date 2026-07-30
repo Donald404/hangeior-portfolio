@@ -1,51 +1,58 @@
 import { motion } from "framer-motion";
+import logo from "../assets/images/logo.png";
 
 function LoadingScreen() {
   return (
     <motion.div
-      className="fixed inset-0 bg-gray-950 flex flex-col justify-center items-center z-[9999]"
+      className="fixed inset-0 bg-white flex flex-col justify-center items-center z-[9999]"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <motion.h1
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+      {/* Spinning Logo */}
+
+      <motion.img
+        src={logo}
+        alt="Terhemen Donald Logo"
+        className="w-28 h-28 object-contain"
+        animate={{ rotate: 360 }}
         transition={{
-          duration: 0.8,
-          type: "spring",
+          duration: 2,
+          ease: "linear",
+          repeat: Infinity,
         }}
-        className="text-6xl font-extrabold text-blue-500"
-      >
-        TD
-      </motion.h1>
+      />
+
+      {/* Portfolio Name */}
 
       <motion.h2
-        initial={{ opacity: 0, y: 25 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          delay: 0.4,
+          delay: 0.3,
           duration: 0.8,
         }}
-        className="text-2xl text-white mt-4 font-semibold"
+        className="text-3xl font-bold text-gray-800 mt-8"
       >
-        Terhemen Donald
+        Terhemen Donald Portfolio
       </motion.h2>
+
+      {/* Loading Text */}
 
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          delay: 0.8,
+          delay: 0.6,
         }}
-        className="text-gray-400 mt-4"
+        className="text-gray-500 mt-3 text-lg"
       >
-        Loading Portfolio...
+        Loading...
       </motion.p>
 
-      {/* Animated Progress Bar */}
+      {/* Progress Bar */}
 
-      <div className="w-64 h-2 bg-gray-800 rounded-full mt-10 overflow-hidden">
+      <div className="w-72 h-2 bg-gray-200 rounded-full mt-10 overflow-hidden">
 
         <motion.div
           className="h-full bg-blue-600"
@@ -57,6 +64,7 @@ function LoadingScreen() {
         />
 
       </div>
+
     </motion.div>
   );
 }

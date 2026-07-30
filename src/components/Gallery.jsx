@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import design1 from "../assets/images/design1.png";
-import design2 from "../assets/images/design2.png";
+import design1 from "../assets/images/design1.jpg";
+import design2 from "../assets/images/design2.jpeg";
 import design3 from "../assets/images/design3.png";
-import design4 from "../assets/images/design4.jpeg";
+import design4 from "../assets/images/design4.png";
 import design5 from "../assets/images/design5.png";
 import design6 from "../assets/images/design6.png";
 
@@ -18,37 +18,31 @@ function Gallery() {
 
     {
       title: "Luxury Birthday Flyer",
-      category: "Flyer Design",
       image: design1,
     },
 
     {
-      title: "Church Programme Flyer",
-      category: "Church Design",
+      title: "Church Program Flyer",
       image: design2,
     },
 
     {
       title: "Business Branding",
-      category: "Brand Identity",
       image: design3,
     },
 
     {
       title: "Social Media Campaign",
-      category: "Social Media Design",
       image: design4,
     },
 
     {
       title: "Conference Poster",
-      category: "Poster Design",
       image: design5,
     },
 
     {
       title: "Event Banner",
-      category: "Banner Design",
       image: design6,
     },
 
@@ -60,66 +54,45 @@ function Gallery() {
 
       <section
         id="gallery"
-        className="py-24 bg-white"
+        className="py-24 bg-gray-100"
       >
 
         <div className="max-w-7xl mx-auto px-6">
 
-          {/* Heading */}
+          <h2 className="text-5xl font-bold text-center text-blue-600 mb-4">
+            Graphic Design Portfolio
+          </h2>
 
-          <div className="text-center mb-16">
+          <p className="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
+            A selection of graphic design projects showcasing creativity,
+            attention to detail, and visual communication.
+          </p>
 
-            <h2 className="text-5xl font-bold text-blue-600 mb-4">
-              Featured Design Works
-            </h2>
-
-            <p className="text-gray-600 max-w-3xl mx-auto leading-8">
-              A curated collection of graphic design projects showcasing my
-              creativity, attention to detail, and passion for delivering
-              visually engaging designs across different industries.
-            </p>
-
-          </div>
-
-          {/* Gallery */}
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
             {designs.map((design, index) => (
 
               <div
                 key={index}
                 onClick={() => setSelectedImage(design)}
-                className="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-500"
+                className="cursor-pointer bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-3 transition duration-500"
               >
-
-                {/* Image */}
 
                 <div className="overflow-hidden">
 
                   <img
                     src={design.image}
                     alt={design.title}
-                    className="w-full h-80 object-cover hover:scale-110 transition duration-700"
+                    className="w-full h-72 object-cover hover:scale-110 transition duration-700"
                   />
 
                 </div>
 
-                {/* Content */}
-
                 <div className="p-6">
 
-                  <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">
-                    {design.category}
-                  </span>
-
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-xl font-bold text-gray-800 text-center">
                     {design.title}
                   </h3>
-
-                  <p className="text-gray-500 text-sm">
-                    Click to preview design
-                  </p>
 
                 </div>
 

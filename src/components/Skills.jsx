@@ -49,7 +49,7 @@ function Skills() {
     <SectionWrapper>
       <section
         id="skills"
-        className="py-24 bg-gray-50"
+        className="py-24 bg-gray-100"
       >
         <div className="max-w-7xl mx-auto px-6">
 

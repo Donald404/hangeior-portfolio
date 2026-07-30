@@ -1,4 +1,4 @@
-import profile from "../assets/images/profile.png";
+import profile from "../assets/images/dona.png";
 import cv from "../assets/documents/terhemen donald cv.pdf";
 
 import {
@@ -122,38 +122,27 @@ function Hero() {
 
           <div className="flex justify-center">
 
-            <div className="relative">
+  <div className="relative">
 
-              {/* Background Glow */}
+    {/* Glow */}
 
-              <div className="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+    <div className="absolute inset-0 bg-blue-500 rounded-3xl blur-3xl opacity-20"></div>
 
-              {/* Circular Image */}
+    {/* Photo */}
 
-              <img
-                src={profile}
-                alt="Terhemen Donald"
-                className="
-                  relative
-                  w-80
-                  h-80
-                  md:w-[430px]
-                  md:h-[430px]
-                  rounded-full
-                  object-cover
-                  object-top
-                  border-8
-                  border-white
-                  shadow-2xl
-                  hover:scale-105
-                  transition
-                  duration-500
-                "
-              />
+    <div className="relative w-[320px] md:w-[420px] rounded-3xl overflow-hidden shadow-2xl">
 
-            </div>
+      <img
+        src={profile}
+        alt="Terhemen Donald"
+        className="w-full h-auto object-cover object-top"
+      />
 
-          </div>
+    </div>
+
+  </div>
+
+</div>
 
         </div>
       </section>
