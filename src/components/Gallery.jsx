@@ -5,7 +5,7 @@ import design2 from "../assets/images/design2.jpeg";
 import design3 from "../assets/images/design3.png";
 import design4 from "../assets/images/design4.png";
 import design5 from "../assets/images/design5.png";
-import design6 from "../assets/images/design6.png";
+import design6 from "../assets/images/design6.jpeg";
 
 import SectionWrapper from "./ui/SectionWrapper";
 import Lightbox from "./ui/Lightbox";
